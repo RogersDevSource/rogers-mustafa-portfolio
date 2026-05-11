@@ -7,8 +7,49 @@
 
 body {
   background: #0b0b12;
-  color: #e5e5e5;
+  color: #f0f0f0;
   line-height: 1.6;
+  position: relative;
+  z-index: 0;
+}
+
+/* ========================= */
+/* BACKGROUND COM IMAGEM */
+/* ========================= */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+
+  background-image: url('img/imagem.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.3; /* imagem mais visível e profissional */
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* ========================= */
+/* OVERLAY PROFISSIONAL (GRADIENTE) */
+/* ========================= */
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(11, 11, 18, 0.8) 0%,
+    rgba(11, 11, 18, 0.6) 50%,
+    rgba(11, 11, 18, 0.8) 100%
+  );
+
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* ========================= */
@@ -23,14 +64,14 @@ nav {
   justify-content: center;
   gap: 30px;
   padding: 15px 20px;
-  background: rgba(10, 10, 20, 0.8);
+  background: rgba(10, 10, 20, 0.75);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #222;
   z-index: 1000;
 }
 
 nav a {
-  color: #ddd;
+  color: #eaeaea;
   text-decoration: none;
   font-size: 14px;
   transition: 0.3s;
@@ -53,11 +94,12 @@ nav a:hover {
   font-size: 42px;
   color: #c084fc;
   margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
   font-size: 16px;
-  color: #aaa;
+  color: #d0d0d0;
 }
 
 /* ========================= */
@@ -84,7 +126,7 @@ h2 {
 h3 {
   margin-top: 20px;
   margin-bottom: 10px;
-  color: #ddd;
+  color: #e5e5e5;
 }
 
 /* ========================= */
@@ -93,7 +135,7 @@ h3 {
 
 #sobre p {
   margin-bottom: 15px;
-  color: #ccc;
+  color: #d6d6d6;
 }
 
 .info-grid {
@@ -101,7 +143,7 @@ h3 {
   padding: 15px;
   border: 1px solid #2a2a3a;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* ========================= */
@@ -115,11 +157,11 @@ ul {
 
 li {
   margin-bottom: 8px;
-  color: #ccc;
+  color: #d6d6d6;
 }
 
 /* ========================= */
-/* PORTFÓLIO (CARDS) */
+/* PORTFÓLIO */
 /* ========================= */
 
 .projects {
@@ -132,7 +174,7 @@ li {
 .project-card {
   padding: 20px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid #2a2a3a;
   transition: 0.3s;
 }
@@ -140,10 +182,6 @@ li {
 .project-card:hover {
   transform: translateY(-5px);
   border-color: #c084fc;
-}
-
-.project-card h3 {
-  margin-bottom: 10px;
 }
 
 /* ========================= */
