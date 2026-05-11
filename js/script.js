@@ -1,7 +1,7 @@
 const formulario = document.getElementById("formulario");
 
 if (formulario) {
-  formulario.addEventListener("submit", function(event) {
+  formulario.addEventListener("submit", function (event) {
     event.preventDefault(); // Impede envio padrão do formulário
 
     // Captura os valores dos campos
@@ -15,7 +15,7 @@ if (formulario) {
       return;
     }
 
-    // Validação de e-mail com RegEx (mais rigorosa)
+    // Validação de e-mail com RegEx
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       alert("Digite um email válido (exemplo: usuario@dominio.com)!");
@@ -27,3 +27,21 @@ if (formulario) {
     formulario.reset();
   });
 }
+
+/* ========================= */
+/* SCROLL SUAVE NO MENU */
+/* ========================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const target = document.querySelector(this.getAttribute("href"));
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+  });
+});
